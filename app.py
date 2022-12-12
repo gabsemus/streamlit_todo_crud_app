@@ -37,7 +37,7 @@ def main():
 		result = visualizar_todos()
 		# st.write(result)
 		df = pd.DataFrame(result,columns=["Pendência","Quantidade","Motivo"])
-		st.dataframe(df)
+		st.dataframe(df, use_container_width=st.session_state.use_container_width)
 
 	elif choice == "Excluir":
 		st.subheader("Excluir")
