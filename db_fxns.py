@@ -4,7 +4,7 @@ c = conn.cursor()
 
 
 def create_table():
-	c.execute('CREATE TABLE IF NOT EXISTS pendencia(nome TEXT,quantidade TEXT,motivo TEXT)')
+	c.execute('CREATE TABLE IF NOT EXISTS pendencia(nome TEXT,quantidade INTEGER, motivo TEXT)')
 
 def inserir_pendencia(nome,quantidade,motivo):
 	c.execute('INSERT INTO pendencia(nome,quantidade,motivo) VALUES (?,?,?)',(nome,quantidade,motivo))
