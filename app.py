@@ -28,7 +28,7 @@ def main():
 	if choice == "Create":
 		st.subheader("Add Item")
 		col1,col2 = st.beta_columns(2)
-		
+
 		with col1:
 			task = st.text_area("Task To Do")
 
@@ -38,7 +38,7 @@ def main():
 
 		if st.button("Add Task"):
 			add_data(task,task_status,task_due_date)
-			st.success("Added ::{} ::To Task".format(task))
+			st.success(f"Added ::{task} ::To Task")
 
 
 	elif choice == "Read":
@@ -69,16 +69,13 @@ def main():
 
 		list_of_tasks = [i[0] for i in view_all_task_names()]
 		selected_task = st.selectbox("Task",list_of_tasks)
-		task_result = get_task(selected_task)
-		# st.write(task_result)
-
-		if task_result:
+		if task_result := get_task(selected_task):
 			task = task_result[0][0]
 			task_status = task_result[0][1]
 			task_due_date = task_result[0][2]
 
 			col1,col2 = st.beta_columns(2)
-			
+
 			with col1:
 				new_task = st.text_area("Task To Do",task)
 
@@ -88,7 +85,7 @@ def main():
 
 			if st.button("Update Task"):
 				edit_task_data(new_task,new_task_status,new_task_due_date,task,task_status,task_due_date)
-				st.success("Updated ::{} ::To {}".format(task,new_task))
+				st.success(f"Updated ::{task} ::To {new_task}")
 
 			with st.beta_expander("View Updated Data"):
 				result = view_all_data()
@@ -109,7 +106,7 @@ def main():
 		delete_by_task_name =  st.selectbox("Select Task",unique_list)
 		if st.button("Delete"):
 			delete_data(delete_by_task_name)
-			st.warning("Deleted: '{}'".format(delete_by_task_name))
+			st.warning(f"Deleted: '{delete_by_task_name}'")
 
 		with st.beta_expander("Updated Data"):
 			result = view_all_data()
