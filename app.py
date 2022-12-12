@@ -30,7 +30,7 @@ def main():
 
 		if st.button("Adicionar"):
 			inserir_pendencia(nome,quantidade,motivo)
-			st.success("Boa seu noia!")
+			st.success("Boa seu noie!")
 
 	elif choice == "Visualizar":
 		st.subheader("Visualizar Pendências")
