@@ -24,7 +24,7 @@ def main():
 
 		nome = st.text_input("Não esquecer de: ")
 
-		quantidade = st.number_input("Quantidade: ", step = 1)
+		quantidade = st.number_input("Quantidade: ", min_value=1, max_value= 50, value = 1, step = 1)
 
 		motivo = st.text_area("Observação (opcional) : ")
 
